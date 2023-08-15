@@ -2,7 +2,7 @@ import { defineConfig, type DefaultTheme } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base: './',
+  base: '/front-end-note/',
   title: "前端笔记",
   description: "好记性不如烂笔头",
   themeConfig: {
@@ -14,7 +14,7 @@ export default defineConfig({
     ],
 
     sidebar: {
-      '/code-spec/': {base: '/code-spec/', items: sidebarCodeSpec()}
+      '/code-spec/': {base: '/', items: sidebarCodeSpec()}
     },
 
     socialLinks: [
