@@ -2,6 +2,7 @@ import { defineConfig, type DefaultTheme } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  base: './',
   title: "前端笔记",
   description: "好记性不如烂笔头",
   themeConfig: {
