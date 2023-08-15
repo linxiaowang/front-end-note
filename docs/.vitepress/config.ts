@@ -14,7 +14,7 @@ export default defineConfig({
     ],
 
     sidebar: {
-      '/code-spec/': {base: '/', items: sidebarCodeSpec()}
+      '/code-spec/': {base: '/code-spec/', items: sidebarCodeSpec()}
     },
 
     socialLinks: [
