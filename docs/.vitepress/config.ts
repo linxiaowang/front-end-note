@@ -10,11 +10,13 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Examples', link: '/markdown-examples' },
-      { text: '代码规范', link: '/code-spec/overview' }
+      { text: '代码规范', link: '/code-spec/overview' },
+      { text: 'Git规范', link: '/git-spec/commit' }
     ],
 
     sidebar: {
-      '/code-spec/': {base: '/code-spec/', items: sidebarCodeSpec()}
+      '/code-spec/': {base: '/code-spec/', items: sidebarCodeSpec()},
+      '/git-spec/': {base: '/git-spec/', items: sidebarGitSpec()}
     },
 
     socialLinks: [
@@ -61,5 +63,17 @@ function sidebarCodeSpec(): DefaultTheme.SidebarItem[] {
       ]
     },
    
+  ]
+}
+
+function sidebarGitSpec(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: 'commit',
+      collapsed: false,
+      items: [
+        { text: 'git commit', link: 'commit' },
+      ]
+    },
   ]
 }
