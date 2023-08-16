@@ -11,7 +11,7 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: 'Examples', link: '/markdown-examples' },
       { text: '代码规范', link: '/code-spec/overview' },
-      { text: 'Git规范', link: '/git-spec/commit' }
+      { text: 'Git规范', link: '/git-spec/overview' }
     ],
 
     sidebar: {
@@ -68,6 +68,20 @@ function sidebarCodeSpec(): DefaultTheme.SidebarItem[] {
 
 function sidebarGitSpec(): DefaultTheme.SidebarItem[] {
   return [
+    {
+      text: '概述',
+      collapsed: false,
+      items: [
+        { text: '概述', link: 'overview' },
+      ]
+    },
+    {
+      text: 'Git 分支管理规范',
+      collapsed: false,
+      items: [
+        { text: '分支命名规范', link: 'branch-naming' },
+      ]
+    },
     {
       text: 'commit',
       collapsed: false,
