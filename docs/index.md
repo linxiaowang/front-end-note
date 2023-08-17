@@ -15,11 +15,14 @@ hero:
       link: /code-spec/overview
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - icon: 📝
+    title: Enjoy
+    details: Enjoy fun coding
+  - icon: 🚀
+    title: Practice
+    details: Practice makes perfect
+  - icon: ✂️
+    title: Yak shaving
+    details: Stay focus on what you're doing
 ---
 

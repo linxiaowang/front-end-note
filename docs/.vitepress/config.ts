@@ -87,6 +87,14 @@ function sidebarGitSpec(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: 'git commit', link: 'commit' },
+        { text: '合并请求模板', link: 'merge-request-template' },
+      ]
+    },
+    {
+      text: '场景说明',
+      collapsed: false,
+      items: [
+        { text: '场景说明', link: 'scene' },
       ]
     },
   ]
