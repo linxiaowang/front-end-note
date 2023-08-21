@@ -11,12 +11,14 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: 'Examples', link: '/markdown-examples' },
       { text: '代码规范', link: '/code-spec/overview' },
-      { text: 'Git规范', link: '/git-spec/overview' }
+      { text: 'Git规范', link: '/git-spec/overview' },
+      { text: '开发工具', link: '/tools/nvm' }
     ],
 
     sidebar: {
       '/code-spec/': {base: '/code-spec/', items: sidebarCodeSpec()},
-      '/git-spec/': {base: '/git-spec/', items: sidebarGitSpec()}
+      '/git-spec/': {base: '/git-spec/', items: sidebarGitSpec()},
+      '/tools/': {base: '/tools/', items: sidebarTools()}
     },
 
     socialLinks: [
@@ -95,6 +97,18 @@ function sidebarGitSpec(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: '场景说明', link: 'scene' },
+      ]
+    },
+  ]
+}
+
+function sidebarTools(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: 'Node',
+      collapsed: false,
+      items: [
+        { text: 'nvm-node', link: 'nvm' },
       ]
     },
   ]
