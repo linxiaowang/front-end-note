@@ -109,6 +109,7 @@ function sidebarTools(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: 'nvm-node', link: 'nvm' },
+        { text: '常用正则', link: 'regular' },
       ]
     },
   ]
