@@ -1,9 +1,11 @@
 # git hooks
 
 ## 安装
+`simple-git-hooks`: [https://github.com/toplenboren/simple-git-hooks]
+`lint-staged`: [https://github.com/okonet/lint-staged]
 nodejs版本在16以上的去除版本号，直接安装最新版
 
-`npm install simple-git-hooks lint-staged@12.0.0 --save-dev`
+`npm install simple-git-hooks lint-staged --save-dev`
 
 ## 指令配置
 `package.json`中加入如下指令：

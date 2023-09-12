@@ -1,8 +1,31 @@
 # ESlint
 
+## Vue3 直接用[https://github.com/antfu/eslint-config]
+
+### 安装
+`pnpm add -D eslint @antfu/eslint-config`
+
+### 配置 `.eslintrc`
+```js
+{
+  "extends": "@antfu"
+}
+```
+
+### 在 `package.json` 添加指令
+```json
+{
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  }
+}
+```
+
+
 ## 安装
 
-`npm install eslint@7.32.0 eslint-plugin-vue@8.0.3 @babel/eslint-parser --save-dev`
+`npm install eslint eslint-plugin-vue @babel/eslint-parser --save-dev`
 
 ## 指令配置
 `package.json`中加入如下指令：
@@ -24,7 +47,6 @@ module.exports = {
     browser: true,
     // es6环境
     es6: true,
-    jquery: true
   },
   extends: ['plugin:vue/recommended', 'eslint:recommended'],
   parserOptions: {

@@ -3,7 +3,7 @@
 ## 安装
 nodejs版本在16以上的去除版本号，直接安装最新版
 
-`npm install stylelint@14.16.1 stylelint-config-html postcss postcss-html postcss-scss@4.0.6 stylelint-config-standard@29.0.0 stylelint-config-standard-scss@6.0.0 stylelint-config-standard-vue --save-dev`
+`npm install stylelint stylelint-config-html postcss postcss-html postcss-scss stylelint-config-standard stylelint-config-standard-scss stylelint-config-standard-vue --save-dev`
 
 ## 指令配置
 `package.json`中加入如下指令：
