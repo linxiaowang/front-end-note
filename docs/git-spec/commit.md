@@ -16,3 +16,30 @@
 - chore: 其他修改（不在上述类型中的修改）
 - release: 发版
 - deps: 依赖相关的修改
+
+## `commitlint`
+
+### 安装
+
+```
+npm install --save-dev @commitlint/config-conventional @commitlint/cli
+```
+
+### 配置
+
+新增 `commitlint.config.js`
+
+```js
+//commitlint.config.js
+module.exports = {
+  extends: ['@commitlint/config-conventional'],
+}
+```
+若是使用 `simple-git-hooks`，则在package.json添加配置
+
+```json
+simple-git-hooks: {
+  'pre-commit': 'lint-staged',
+  'commit-msg': 'commitlint'
+}
+```
