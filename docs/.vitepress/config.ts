@@ -99,6 +99,13 @@ function sidebarGitSpec(): DefaultTheme.SidebarItem[] {
         { text: '场景说明', link: 'scene' },
       ]
     },
+    {
+      text: '日常使用',
+      collapsed: false,
+      items: [
+        { text: '常用指令', link: 'commands' },
+      ]
+    },
   ]
 }
 

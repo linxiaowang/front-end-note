@@ -1,0 +1,13 @@
+# 常用 `git` 指令
+
+## 区分文件大小写
+Git默认对文件名的大小写是不敏感的，设置大小写敏感的指令为：
+`git config core.ignorecase false`
+
+## 备份工作区内容
+
+`git stash`
+`git stash pop`: 从`git`栈中读取最近一次保存的内容，恢复工作区的相关内容
+
+## 更新本地远程分支
+`git fetch -p origin`
