@@ -9,7 +9,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' },
+      { text: 'typescript', link: '/typescript/types/basic' },
       { text: '代码规范', link: '/code-spec/overview' },
       { text: 'Git规范', link: '/git-spec/overview' },
       { text: '开发工具', link: '/tools/nvm' }
@@ -18,7 +18,8 @@ export default defineConfig({
     sidebar: {
       '/code-spec/': {base: '/code-spec/', items: sidebarCodeSpec()},
       '/git-spec/': {base: '/git-spec/', items: sidebarGitSpec()},
-      '/tools/': {base: '/tools/', items: sidebarTools()}
+      '/tools/': {base: '/tools/', items: sidebarTools()},
+      '/typescript/': {base: '/typescript/', items: sidebarTypescript()}
     },
 
     socialLinks: [
@@ -117,6 +118,22 @@ function sidebarTools(): DefaultTheme.SidebarItem[] {
       items: [
         { text: 'nvm-node', link: 'nvm' },
         { text: '常用正则', link: 'regular' },
+      ]
+    },
+  ]
+}
+
+
+function sidebarTypescript(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: '类型',
+      collapsed: false,
+      items: [
+        { text: '基础类型', link: 'types/basic' },
+        { text: '对象类型', link: 'types/object' },
+        { text: '其它类型', link: 'types/other' },
+        { text: '类型断言', link: 'types/assertions' },
       ]
     },
   ]
