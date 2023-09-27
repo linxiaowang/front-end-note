@@ -15,7 +15,7 @@ obj.bar = 100;
 obj = 'hello';
 const n: number = obj;
 ```
-## Object
+## object
 
 要定义对象类型，我们只需列出其属性及其类型。
 
@@ -31,3 +31,37 @@ printCoord({ x: 3, y: 7 });
 ```
 ## Unknown
 
+`unknown` 是 any 的类型安全对应方。任何类型都可以赋值给 `unknown`，但如果没有类型断言或基于控制流的缩小，`unknown` 除了赋值给自身和 `any` 之外，不能赋值给任何其他类型。同样，如果不先断言或缩小到一个更具体的类型，就不允许对 `unknown` 进行任何操作。
+
+```ts
+function f1(a: any) {
+  a.b(); // OK
+}
+
+function f2(a: unknown) {
+  // Error: Property 'b' does not exist on type 'unknown'.
+  a.b();
+}
+```
+## never
+`never` 类型表示从不出现的值类型。例如，`never` 是函数表达式或箭头函数表达式的返回类型，它总是抛出异常或从不返回。当变量被任何永远不会为真的类型保护缩小范围时，也会获得 `never` 类型。
+
+`never` 类型是每种类型的子类型，可以赋值给每种类型；但是，没有任何类型是 `never` 的子类型，也不能赋值给 `never`（除了 `never` 本身）。甚至 `any` 也不能赋值给 `never`。
+
+返回 never 的函数示例
+```ts
+// Function returning never must not have a reachable end point
+function error(message: string): never {
+  throw new Error(message);
+}
+
+// Inferred return type is never
+function fail() {
+  return error('Something failed');
+}
+
+// Function returning never must not have a reachable end point
+function infiniteLoop(): never {
+  while (true) {}
+}
+```
