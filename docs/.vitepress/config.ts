@@ -24,7 +24,9 @@ export default defineConfig({
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/linxiaowang/front-end-note' }
-    ]
+    ],
+
+    lastUpdated:true
   }
 })
 
