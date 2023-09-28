@@ -174,17 +174,27 @@ function sidebarTypescript(): DefaultTheme.SidebarItem[] {
       ]
     },
     {
-      text: '函数',
+      text: '复杂类型',
       collapsed: false,
       items: [
-        { text: '函数', link: 'function' }
+        { text: '函数', link: 'function' },
+        { text: '接口', link: 'interface' },
+        { text: '类', link: 'classes' },
+        { text: '泛型', link: 'generics' },
       ]
     },
     {
-      text: '接口',
+      text: '装饰器',
       collapsed: false,
       items: [
-        { text: '接口', link: 'interface' }
+        { text: '装饰器', link: 'decorators' }
+      ]
+    },
+    {
+      text: '实用工具类型',
+      collapsed: false,
+      items: [
+        { text: '实用工具类型', link: 'utility' }
       ]
     },
   ]

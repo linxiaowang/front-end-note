@@ -119,3 +119,30 @@ const todo: Readonly<Todo> = {
 todo.title = 'Hello';
 ```
 这是一个有用的工具类型，特别是当你希望确保某些对象的属性不会在后续的代码中被意外修改时。
+
+
+## Record
+`Record` 是 TypeScript 中的一个实用工具类型，它用于创建一个对象类型，其中属性键是由 `Keys` 指定的字符串字面量或联合类型，属性值是由 `Type` 指定的类型。这个实用工具类型通常用于将类型的属性映射到另一个类型上。
+
+在你的示例中，你有一个 `CatInfo` 接口，它定义了关于猫的信息的类型。然后，你有一个 `CatName` 类型，它是三个字符串字面量的联合类型。接着，你使用 `Record` 创建了一个对象 `cats`，将 `CatName` 作为属性键，将 `CatInfo` 作为属性值，以创建一个映射，将每个猫的名称映射到其信息。
+
+以下是你示例中的代码：
+
+```ts
+interface CatInfo {
+  age: number;
+  breed: string;
+}
+
+type CatName = 'miffy' | 'boris' | 'mordred';
+
+const cats: Record<CatName, CatInfo> = {
+  miffy: { age: 10, breed: 'Persian' },
+  boris: { age: 5, breed: 'Maine Coon' },
+  mordred: { age: 16, breed: 'British Shorthair' },
+};
+
+```
+这个例子创建了一个 `cats` 对象，该对象包含了三只猫的信息，每只猫都可以通过其名称（'`miffy`'、'`boris`' 和 '`mordred`'）来访问其信息。
+
+`Record` 可以在许多情况下很有用，特别是在需要将一组字符串映射到特定类型的情况下。
