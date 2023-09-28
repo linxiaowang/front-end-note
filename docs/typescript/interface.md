@@ -109,3 +109,71 @@ type Window = {
 
 // 错误：重复的标识符 'Window'。
 ```
+
+## Extends - 继承
+在 TypeScript 中，您可以通过使用 "extends" 关键字创建一个新接口，该接口继承自原始接口，从而扩展接口。新接口可以包含额外的属性、方法或重新定义原始接口的成员。
+
+```ts
+interface Shape {
+  width: number;
+  height: number;
+}
+
+interface Square extends Shape {
+  sideLength: number;
+}
+
+let square: Square = {
+  width: 10,
+  height: 10,
+  sideLength: 10,
+};
+
+```
+在此示例中，`Square` 接口扩展了 `Shape` 接口，并添加了一个额外的属性 `sideLength`。类型为 `Square` 的变量必须具有 `Shape` 和 `Square` 接口中定义的所有属性。这意味着 `square` 变量必须具有 `width`、`height` 和 `sideLength` 属性。
+
+
+## 接口声明
+
+在 TypeScript 中，接口是用于创建具有特定结构的对象的蓝图。接口定义了一个类或对象必须实现的一组属性、方法和事件。接口是对象和类之间的契约，可用于强制代码中对象的特定结构。
+
+以下是在 TypeScript 中声明接口的示例：
+```ts
+interface Person {
+  firstName: string;
+  lastName: string;
+  age?: number;
+
+  getFullName(): string;
+}
+
+```
+在此示例中，`Person` 接口定义了四个属性：`firstName`、`lastName`、`age` 和一个名为 `getFullName()` 的方法。`age` 属性是可选的，由 `?` 符号表示。实现 `Person` 接口的任何类或对象必须具有这些属性和方法。
+
+## 混合类型
+
+在 TypeScript 中，混合类型是一种将多个类型组合成单一类型的方式。结果类型被视为这些类型的联合。这允许您指定一个值可以具有多个类型，而不仅仅是一个类型。
+
+例如，您可以创建一个混合类型，它可以接受字符串或数字：
+```ts
+type StringOrNumber = string | number;
+```
+
+您还可以使用混合类型来创建更复杂的类型，可以表示多种不同类型的值的组合。例如
+
+```ts
+type Education = {
+  degree: string;
+  school: string;
+  year: number;
+};
+
+type User = {
+  name: string;
+  age: number;
+  email: string;
+  education: Education;
+};
+
+```
+在上述示例中，`StringOrNumber` 是一个可以是字符串或数字的混合类型，而 `User` 是一个更复杂的混合类型，它包括多种不同类型的属性。这使得在 TypeScript 中可以更灵活地表示多样化的数据结构。
