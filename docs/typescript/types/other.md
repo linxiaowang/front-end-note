@@ -29,7 +29,7 @@ function printCoord(pt: { x: number; y: number }) {
 
 printCoord({ x: 3, y: 7 });
 ```
-## Unknown
+## unknown
 
 `unknown` 是 any 的类型安全对应方。任何类型都可以赋值给 `unknown`，但如果没有类型断言或基于控制流的缩小，`unknown` 除了赋值给自身和 `any` 之外，不能赋值给任何其他类型。同样，如果不先断言或缩小到一个更具体的类型，就不允许对 `unknown` 进行任何操作。
 
