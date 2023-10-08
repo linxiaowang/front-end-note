@@ -11,7 +11,7 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: 'typescript', link: '/typescript/overview' },
       { text: '代码规范', link: '/code-spec/overview' },
-      { text: 'Git规范', link: '/git-spec/overview' },
+      { text: 'Git相关', link: '/git-spec/overview' },
       { text: '开发工具', link: '/tools/nvm' }
     ],
 

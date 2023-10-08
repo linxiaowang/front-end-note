@@ -12,7 +12,6 @@ Git默认对文件名的大小写是不敏感的，设置大小写敏感的指�
 ## 更新本地远程分支
 `git fetch -p origin`
 
-
 ## 本地分支关联远程分支
 
 `git branch --set-upstream-to=origin/[branch name] [branch name]`
@@ -21,3 +20,11 @@ Git默认对文件名的大小写是不敏感的，设置大小写敏感的指�
 ## 删除关联远程仓库
 
 `git remote rm origin`
+
+## 本地新增关联远程仓库
+
+`git remote add origin [origin address]`
+
+## 更换远程仓库地址
+
+`git remote set-url origin [origin address]`
