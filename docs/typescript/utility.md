@@ -146,3 +146,168 @@ const cats: Record<CatName, CatInfo> = {
 这个例子创建了一个 `cats` 对象，该对象包含了三只猫的信息，每只猫都可以通过其名称（'`miffy`'、'`boris`' 和 '`mordred`'）来访问其信息。
 
 `Record` 可以在许多情况下很有用，特别是在需要将一组字符串映射到特定类型的情况下。
+
+## Exclude
+Exclude（排除）是一个 TypeScript 中的类型工具，它用于从一个联合类型（Union Type）中排除满足某个条件的成员，返回一个新的类型。
+
+例如：
+
+```ts
+type T0 = Exclude<'a' | 'b' | 'c', 'a'>; // 结果为 "b" | "c"
+type T1 = Exclude<'a' | 'b' | 'c', 'a' | 'b'>; // 结果为 "c"
+type T2 = Exclude<string | number | (() => void), Function>; // 结果为 string | number
+
+```
+
+在上面的示例中，`Exclude` 用于排除联合类型中符合条件的成员。`T0` 排除了 `'a'`，所以结果是 `b | c`；`T1` 排除了 `'a'` 和 `'b'`，所以结果是 `'c'`；`T2` 排除了 `Function` 类型，所以结果是 `string | number`。这个工具类型在某些情况下可以帮助你过滤掉不需要的类型成员。
+
+## Extract
+`Extract` 是 TypeScript 中的类型工具之一，它用于从一个类型中提取出符合条件的成员，返回一个新的类型。具体来说，`Extract` 会从第一个类型中提取那些在第二个类型中存在的成员。
+
+例如：
+
+```typescript
+type T0 = Extract<'a' | 'b' | 'c', 'a' | 'f'>;
+// 结果是 "a"
+```
+
+在这个示例中，`Extract` 从第一个类型 `'a' | 'b' | 'c'` 中提取那些在第二个类型 `'a' | 'f'` 中存在的成员，因此结果是 `'a'`，因为 `'a'` 存在于第二个类型中。
+
+`Extract` 可以用于过滤、提取出特定类型的成员，适用于许多类型操作的场景。
+
+## NonNullable
+`NonNullable` 是 TypeScript 中的类型工具之一，它用于创建一个新类型，该类型排除了原始类型中的 `null` 和 `undefined`。
+
+例如：
+
+```typescript
+type T0 = NonNullable<string | number | undefined>;
+// 结果是 string | number
+
+type T1 = NonNullable<string[] | null | undefined>;
+// 结果是 string[]
+```
+
+在第一个示例中，`NonNullable` 排除了 `undefined`，因此结果类型是 `string | number`。在第二个示例中，它排除了 `null` 和 `undefined`，因此结果类型是 `string[]`。
+
+这对于确保你的类型不包含可选的或未定义的值很有用，可以帮助减少潜在的运行时错误。
+
+
+## Parameters
+
+`Parameters` 是 TypeScript 中的一个类型工具，它用于从函数类型中提取参数的类型，并将它们构建成一个元组类型。以下是一些示例，展示了如何使用 `Parameters`：
+
+```typescript
+type T0 = Parameters<() => string>;
+// 结果是 []
+
+type T1 = Parameters<(s: string) => void>;
+// 结果是 [s: string]
+
+type T2 = Parameters<<T>(arg: T) => T>;
+// 结果是 [arg: unknown]
+
+declare function f1(arg: { a: number; b: string }): void;
+type T3 = Parameters<typeof f1>;
+// 结果是 [arg: { a: number; b: string; }]
+
+type T4 = Parameters<any>;
+// 结果是 unknown[]
+
+type T5 = Parameters<never>;
+// 结果是 never
+
+type T6 = Parameters<string>;
+// ^ Type 'string' does not satisfy the constraint '(...args: any) => any'.
+
+type T7 = Parameters<Function>;
+// ^ Type 'Function' does not satisfy the constraint '(...args: any) => any'.
+```
+
+这些示例展示了如何使用 `Parameters` 来获取不同函数类型的参数类型，并将它们构建成元组类型。但需要注意的是，某些类型，如 `string` 和 `Function`，不满足 `(...args: any) => any` 的函数类型约束，因此在这种情况下，`Parameters` 将会报错。
+
+## ReturnType
+
+`ReturnType` 是 TypeScript 中的一个类型工具，它用于获取函数类型的返回值类型。以下是一些示例，展示了如何使用 `ReturnType`：
+
+```typescript
+type T0 = ReturnType<() => string>;
+// 结果是 string
+
+type T1 = ReturnType<(s: string) => void>;
+// 结果是 void
+
+type T2 = ReturnType<<T>() => T>;
+// 结果是 unknown
+
+type T3 = ReturnType<<T extends U, U extends number[]>() => T>;
+// 结果是 number[]
+
+declare function f1(): { a: number; b: string };
+type T4 = ReturnType<typeof f1>;
+// 结果是 { a: number; b: string; }
+
+type T5 = ReturnType<any>;
+// 结果是 any
+
+type T6 = ReturnType<never>;
+// 结果是 never
+
+type T7 = ReturnType<string>;
+// ^ Type 'string' does not satisfy the constraint '(...args: any) => any'.
+
+type T8 = ReturnType<Function>;
+// ^ Type 'Function' does not satisfy the constraint '(...args: any) => any'.
+```
+
+这些示例展示了如何使用 `ReturnType` 来获取不同函数类型的返回值类型。但需要注意的是，某些类型，如 `string` 和 `Function`，不满足 `(...args: any) => any` 的函数类型约束，因此在这种情况下，`ReturnType` 将会报错。
+
+
+## InstanceType
+
+`InstanceType` 是 TypeScript 中的一个类型工具，它用于获取构造函数的实例类型。以下是一些示例，展示了如何使用 `InstanceType`：
+
+```typescript
+class C {
+  x = 0;
+  y = 0;
+}
+
+type T0 = InstanceType<typeof C>;
+// 结果是 C
+
+type T1 = InstanceType<any>;
+// 结果是 any
+
+type T2 = InstanceType<never>;
+// 结果是 never
+
+type T3 = InstanceType<string>;
+// ^ Type 'string' does not satisfy the constraint 'abstract new (...args: any) => any'.
+
+type T4 = InstanceType<Function>;
+// ^ Type 'Function' does not satisfy the constraint 'abstract new (...args: any) => any'.
+```
+
+这些示例中，`T0` 获取了类 `C` 的实例类型，`T1` 获取了 `any` 类型的实例类型，而 `T2` 获取了 `never` 类型的实例类型。
+
+需要注意的是，像 `string` 和 `Function` 这样的类型不满足 `abstract new (...args: any) => any` 的构造函数类型约束，因此在这种情况下，`InstanceType` 将会报错。
+
+## Awaited
+
+`Awaited` 是 TypeScript 中的一个类型工具，用于模拟像 `await` 在异步函数中或 `Promise` 上的 `.then()` 方法等操作，特别是它们递归展开 `Promise` 的方式。
+
+以下是一些示例，展示了如何使用 `Awaited`：
+
+```typescript
+type A = Awaited<Promise<string>>;
+// 结果是 string
+
+type B = Awaited<Promise<Promise<number>>>;
+// 结果是 number
+
+type C = Awaited<boolean | Promise<number>>;
+// 结果是 number | boolean
+```
+
+在这些示例中，`Awaited` 用于获取 `Promise` 中的实际值类型，并递归展开嵌套的 `Promise`。
