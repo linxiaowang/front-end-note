@@ -129,72 +129,27 @@ function sidebarTools(): DefaultTheme.SidebarItem[] {
 function sidebarTypescript(): DefaultTheme.SidebarItem[] {
   return [
     {
-      text: '概述',
+      text: 'Typescript',
       collapsed: false,
       items: [
-        { text: '概述', link: 'overview' }
-      ]
-    },
-    {
-      text: '类型',
-      collapsed: false,
-      items: [
+        { text: '概述', link: 'overview' },
         { text: '基础类型', link: 'types/basic' },
         { text: '对象类型', link: 'types/object' },
         { text: '其它类型', link: 'types/other' },
         { text: '类型断言', link: 'types/assertions' },
-      ]
-    },
-    {
-      text: '类型推断',
-      collapsed: false,
-      items: [
-        { text: '类型推断', link: 'inference' }
-      ]
-    },
-    {
-      text: '类型兼容',
-      collapsed: false,
-      items: [
-        { text: '类型兼容', link: 'compatibility' }
-      ]
-    },
-    {
-      text: '组合类型',
-      collapsed: false,
-      items: [
-        { text: '组合类型', link: 'combining' }
-      ]
-    },
-    {
-      text: '类型守卫',
-      collapsed: false,
-      items: [
-        { text: '类型守卫', link: 'guards' }
-      ]
-    },
-    {
-      text: '复杂类型',
-      collapsed: false,
-      items: [
+        { text: '类型推断', link: 'inference' },
+        { text: '类型兼容', link: 'compatibility' },
+        { text: '组合类型', link: 'combining' },
+        { text: '类型守卫', link: 'guards' },
         { text: '函数', link: 'function' },
         { text: '接口', link: 'interface' },
         { text: '类', link: 'classes' },
         { text: '泛型', link: 'generics' },
-      ]
-    },
-    {
-      text: '装饰器',
-      collapsed: false,
-      items: [
-        { text: '装饰器', link: 'decorators' }
-      ]
-    },
-    {
-      text: '实用工具类型',
-      collapsed: false,
-      items: [
-        { text: '实用工具类型', link: 'utility' }
+        { text: '装饰器', link: 'decorators' },
+        { text: '实用工具类型', link: 'utility' },
+        { text: '高级类型', link: 'advanced' },
+        { text: '模块', link: 'modules' },
+
       ]
     },
   ]

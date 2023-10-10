@@ -45,7 +45,7 @@ namespace MyNamespace {
 MyNamespace.doSomething(); // 输出: "Doing something..."
 ```
 
-在这个示例中，我们在 "myNamespace.ts" 文件中使用命名空间关键字来定义一个命名空间 "MyNamespace"。在命名空间中，我们导出一个名为 "doSomething" 的函数。在主文件 "main.ts" 中，我们使用 `/// <reference path="myNamespace.ts" />` 来引用命名空间，然后调用了 "MyNamespace.doSomething()"。
+在这个示例中，我们在 `"myNamespace.ts"` 文件中使用命名空间关键字来定义一个命名空间 `"MyNamespace"`。在命名空间中，我们导出一个名为 `"doSomething"` 的函数。在主文件 `"main.ts"` 中，我们使用 `/// <reference path="myNamespace.ts" />` 来引用命名空间，然后调用了 `"MyNamespace.doSomething()"`。
 
 这种方式可以帮助组织和管理大型代码库，使相关的代码在一个地方组织，避免了潜在的命名冲突。
 
@@ -66,14 +66,14 @@ import * as myModule from 'my-module';
 myModule.doSomething();
 ```
 
-在这个示例中，我们在 myModule.d.ts 文件中声明了一个环境模块 "my-module"。这个声明提供了 "my-module" 模块的类型信息，包括从模块导出的 "doSomething" 函数。
+在这个示例中，我们在 `myModule.d.ts` 文件中声明了一个环境模块 `"my-module"`。这个声明提供了 `"my-module"` 模块的类型信息，包括从模块导出的 `"doSomething"` 函数。
 
-这样，TypeScript 就能够识别并检查引入自 "my-module" 模块的代码，以提供类型安全性和代码补全等功能。这对于与没有 TypeScript 声明的外部模块或第三方库进行交互非常有用。
+这样，TypeScript 就能够识别并检查引入自 `"my-module"` 模块的代码，以提供类型安全性和代码补全等功能。这对于与没有 TypeScript 声明的外部模块或第三方库进行交互非常有用。
 
 
 ## 外部模块
 
-在 TypeScript 中，外部模块允许您在多个文件之间组织和共享代码。TypeScript 中的外部模块遵循 CommonJS 或 ES 模块标准。
+在 TypeScript 中，外部模块允许您在多个文件之间组织和共享代码。TypeScript 中的外部模块遵循 `CommonJS` 或 `ES` 模块标准。
 
 以下是如何在 TypeScript 中使用外部模块的示例：
 
@@ -88,7 +88,7 @@ import { doSomething } from './myModule';
 doSomething(); // 输出: "Doing something..."
 ```
 
-在这个示例中，我们在 "myModule.ts" 文件中使用 "export" 关键字导出 "doSomething" 函数，从而使其可供其他文件使用。在 "main.ts" 文件中，我们使用 "import" 语句来引入 "doSomething" 函数，然后调用它，从而实现了在不同文件之间共享和使用代码的目的。
+在这个示例中，我们在 `"myModule.ts"` 文件中使用 `"export"` 关键字导出 `"doSomething"` 函数，从而使其可供其他文件使用。在 `"main.ts"` 文件中，我们使用 `"import"` 语句来引入 `"doSomething"` 函数，然后调用它，从而实现了在不同文件之间共享和使用代码的目的。
 
 ## 命名空间扩展
 
@@ -118,7 +118,7 @@ const obj = new MyModule.MyModule();
 obj.newFunction(); // 输出: "I am a new function in MyModule!"
 ```
 
-在这个示例中，我们使用命名空间扩展向 "MyModule" 命名空间添加了一个新函数 "newFunction"。这是在声明文件 myModule.d.ts 中完成的，我们在 "MyModule" 命名空间内声明了一个新接口 "MyModule"，并在其中添加了 "newFunction" 函数。
+在这个示例中，我们使用命名空间扩展向 `"MyModule"` 命名空间添加了一个新函数 `"newFunction"`。这是在声明文件 `myModule.d.ts` 中完成的，我们在 `"MyModule"` 命名空间内声明了一个新接口 `"MyModule"`，并在其中添加了 `"newFunction"` 函数。
 
 
 ## 全局扩展
@@ -143,7 +143,7 @@ global.myGlobalFunction = function () {
 myGlobalFunction(); // 输出: "I am a global function!"
 ```
 
-在这个示例中，我们声明了一个新的命名空间 "NodeJS" 并向其添加了一个接口 "Global"。在 "Global" 接口内部，我们声明了一个新的函数 "myGlobalFunction"。
+在这个示例中，我们声明了一个新的命名空间 `"NodeJS"` 并向其添加了一个接口 `"Global"`。在 `"Global"` 接口内部，我们声明了一个新的函数 `"myGlobalFunction"`。
 
-这样，您可以在全局范围内使用 "myGlobalFunction" 函数。
+这样，您可以在全局范围内使用 `"myGlobalFunction"` 函数。
 
