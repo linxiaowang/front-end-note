@@ -10,6 +10,7 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'typescript', link: '/typescript/overview' },
+      { text: 'nodejs', link: '/nodejs/overview' },
       { text: '代码规范', link: '/code-spec/overview' },
       { text: 'Git相关', link: '/git-spec/overview' },
       { text: '开发工具', link: '/tools/nvm' }
@@ -19,7 +20,8 @@ export default defineConfig({
       '/code-spec/': {base: '/code-spec/', items: sidebarCodeSpec()},
       '/git-spec/': {base: '/git-spec/', items: sidebarGitSpec()},
       '/tools/': {base: '/tools/', items: sidebarTools()},
-      '/typescript/': {base: '/typescript/', items: sidebarTypescript()}
+      '/typescript/': {base: '/typescript/', items: sidebarTypescript()},
+      // '/nodejs/': {base: '/nodejs/', items: sidebarNodejs()}
     },
 
     socialLinks: [
@@ -150,6 +152,19 @@ function sidebarTypescript(): DefaultTheme.SidebarItem[] {
         { text: '高级类型', link: 'advanced' },
         { text: '模块', link: 'modules' },
 
+      ]
+    },
+  ]
+}
+
+
+function sidebarNodejs(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: 'Nodejs',
+      collapsed: false,
+      items: [
+        { text: '概述', link: 'overview' },
       ]
     },
   ]
