@@ -88,3 +88,51 @@ pageX、pageY属性，但是没有x、y属性。
 
 （9）怪异模式问题：漏写DTD声明，Firefox仍然会按照标准模式来解析网页，但在IE中会触发怪异模
 式。为避免怪异模式给我们带来不必要的麻烦，最好养成书写DTD声明的好习惯。
+
+
+## 绝对定位元素与非绝对定位元素的百分比计算的区别
+绝对定位元素的宽高百分比是相对于临近的position不为static的祖先元素的padding box来计算的。
+
+非绝对定位元素的宽高百分比则是相对于父元素的content box来计算的。
+
+## margin 重叠问题的理解
+margin重叠指的是在垂直方向上，两个相邻元素的margin发生重叠的情况。
+
+一般来说可以分为四种情形：
+
+第一种是相邻兄弟元素的marin-bottom和margin-top的值发生重叠。这种情况下我们可以通过设置其中一个元素为BFC
+来解决。
+
+第二种是父元素的margin-top和子元素的margin-top发生重叠。它们发生重叠是因为它们是相邻的，所以我们可以通过这
+一点来解决这个问题。我们可以为父元素设置border-top、padding-top值来分隔它们，当然我们也可以将父元素设置为BFC
+来解决。
+
+第三种是高度为auto的父元素的margin-bottom和子元素的margin-bottom发生重叠。它们发生重叠一个是因为它们相
+邻，一个是因为父元素的高度不固定。因此我们可以为父元素设置border-bottom、padding-bottom来分隔它们，也可以为
+父元素设置一个高度，max-height和min-height也能解决这个问题。当然将父元素设置为BFC是最简单的方法。
+
+第四种情况，是没有内容的元素，自身的margin-top和margin-bottom发生的重叠。我们可以通过为其设置border、pa
+dding或者高度来解决这个问题。
+
+## 对 BFC 规范（块级格式化上下文：block formatting context）的理解
+BFC指的是块级格式化上下文，一个元素形成了BFC之后，那么它内部元素产生的布局不会影响到外部元素，外部元素的布局也
+不会影响到BFC中的内部元素。一个BFC就像是一个隔离区域，和其他区域互不影响。
+
+一般来说根元素是一个BFC区域，浮动和绝对定位的元素也会形成BFC，display属性的值为inline-block、flex这些
+属性时也会创建BFC。还有就是元素的overflow的值不为visible时都会创建BFC。
+
+触发BFC
+文档的根元素（<html>）。
+浮动元素（即 float 值不为 none 的元素）。
+绝对定位元素（position 值为 absolute 或 fixed 的元素）。
+行内块元素（display 值为 inline-block 的元素）。
+表格单元格（display 值为 table-cell，HTML 表格单元格默认值）。
+表格标题（display 值为 table-caption，HTML 表格标题默认值）。
+匿名表格单元格元素（display 值为 table（HTML 表格默认值）、table-row（表格行默认值）、table-row-group（表格体默认值）、table-header-group（表格头部默认值）、table-footer-group（表格尾部默认值）或 inline-table）。
+overflow 值不为 visible 或 clip 的块级元素。
+display 值为 flow-root 的元素。
+contain 值为 layout、content 或 paint 的元素。
+弹性元素（display 值为 flex 或 inline-flex 元素的直接子元素），如果它们本身既不是弹性、网格也不是表格容器。
+网格元素（display 值为 grid 或 inline-grid 元素的直接子元素），如果它们本身既不是弹性、网格也不是表格容器。
+多列容器（column-count 或 column-width (en-US) 值不为 auto，且含有 column-count: 1 的元素）。
+column-span 值为 all 的元素始终会创建一个新的格式化上下文，即使该元素没有包裹在一个多列容器中（规范变更、Chrome bug）
